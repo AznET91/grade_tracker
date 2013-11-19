@@ -42,6 +42,7 @@ img.fit {
 	color: #0079FF;
 	margin-top: 10px;
 	line-height: 1;
+	margin-left: 10px;
 }
 
 .myTopBar {
@@ -120,7 +121,7 @@ img.fit {
 .semester {
 	display: table;
 	width: 100%;
-	height: 80px;
+	height: 90px;
 	background-color: white;
 	color: black;
 	outline: #d6d6d5 solid 1px;
