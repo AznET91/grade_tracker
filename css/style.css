@@ -135,6 +135,7 @@ img.fit {
 }
 .semester .rhs{
 	width: 10%;
+	height: 100%;
 }
 .semester > div { float: right; }
 
