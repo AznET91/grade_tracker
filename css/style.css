@@ -67,9 +67,14 @@ img.fit {
 
 #arrow-button {
 	vertical-align: middle;
+	margin-top: 7px;
 }
 #plus-button {
 	height: inherit;
+}
+#delete-button {
+	padding: 30px 16px;
+	margin-top: 7px;
 }
 
 .myFooter {
@@ -131,11 +136,15 @@ img.fit {
 }
 
 .semester .lhs {
-	width: 90%;
+	/*display: none;*/
+	width: 15%;
+}
+.semester .mid {
+	width: 85%;
 }
 .semester .rhs{
-	width: 10%;
-	height: 100%;
+	display: none;
+	width: 15%;
 }
 .semester > div { float: right; }
 
