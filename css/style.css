@@ -136,14 +136,14 @@ img.fit {
 }
 
 .semester .lhs {
-	/*display: none;*/
+	display: none;
 	width: 15%;
 }
 .semester .mid {
 	width: 85%;
 }
 .semester .rhs{
-	display: none;
+	display: block;
 	width: 15%;
 }
 .semester > div { float: right; }
