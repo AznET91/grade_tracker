@@ -32,8 +32,9 @@ function addSem () {
 	
 }
 
-function deleteSem() {
-	document.getElementsByTagName('sem3').remove();
+function deleteSem(sem) {
+	var element = document.getElementById(sem);
+	element.parentNode.removeChild(element);
 }
 
 $(document).ready(function(){
