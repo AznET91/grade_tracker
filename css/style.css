@@ -66,7 +66,7 @@ img.fit {
 }
 
 #arrow-button {
-	vertical-align: middle;
+	padding: 30px 16px;
 	margin-top: 7px;
 }
 #plus-button {
