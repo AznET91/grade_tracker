@@ -26,12 +26,6 @@ function enableEditing() {
 	}
 }
 
-function addSem () {
-	var semView = document.getElementById('semester-view');
-	semView.
-	
-}
-
 function deleteSem(sem) {
 	var element = document.getElementById(sem);
 	element.parentNode.removeChild(element);

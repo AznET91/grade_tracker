@@ -8,9 +8,14 @@
 	margin: 0;
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	color: black;
-	font-family: 'Helvetica Neue', Arial;
+	font-family: 'Helvetica Neue', sans-serif;
+	height: 100%;
 }
 
 img.fit {
@@ -155,12 +160,16 @@ img.fit {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	z-index: 200;
 
 	background-color: white;
 }
 
-
-
+#add-semester-overlay:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
 
 
 
