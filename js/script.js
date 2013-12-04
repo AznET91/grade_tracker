@@ -26,4 +26,8 @@ function enableEditing() {
 	}
 }
 
+function addSem () {
+	
+}
+
 // });
