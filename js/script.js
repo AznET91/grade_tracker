@@ -27,6 +27,8 @@ function enableEditing() {
 }
 
 function addSem () {
+	var semView = document.getElementById('semester-view');
+	semView.
 	
 }
 
@@ -34,4 +36,9 @@ function deleteSem() {
 	document.getElementsByTagName('sem3').remove();
 }
 
-// });
+$(document).ready(function(){
+	$("#plus-button").click(function(event) {
+		$("#semester-view").hide();
+		$("#add-semester-overlay").show();
+	});
+});
