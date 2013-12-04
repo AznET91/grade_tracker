@@ -30,4 +30,8 @@ function addSem () {
 	
 }
 
+function deleteSem() {
+	document.getElementsByTagName('sem3').remove();
+}
+
 // });
