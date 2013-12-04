@@ -5,23 +5,23 @@ function enableEditing() {
 	var rhs = document.getElementsByClassName('rhs');
 	var i;
 
-	if (lhs[0].style.display === "none") {
-		for(i = 0; i<lhs.length; i++) {
-			lhs[i].style.display = "block";
-		}
-
-		for(i = 0; i<rhs.length; i++) {
-			rhs[i].style.display = "none";
-		}
-	}
-
-	else {
+	if (lhs[0].style.display === "block") {
 		for(i = 0; i<lhs.length; i++) {
 			lhs[i].style.display = "none";
 		}
 
 		for(i = 0; i<rhs.length; i++) {
 			rhs[i].style.display = "block";
+		}
+	}
+
+	else {
+		for(i = 0; i<lhs.length; i++) {
+			lhs[i].style.display = "block";
+		}
+
+		for(i = 0; i<rhs.length; i++) {
+			rhs[i].style.display = "none";
 		}
 	}
 }
