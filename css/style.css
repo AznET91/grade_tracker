@@ -1,98 +1,154 @@
 /*main color: #509BBA;
   darker: #407F99; */
 
-/**************************
- * NEW CSS
- **************************/
  * {
 	margin: 0;
 }
 
+html {
+	height: 100%;
+}
+
 body {
-	color: black;
-	font-family: 'Helvetica Neue', Arial;
+	width: 720px;
+	margin: auto;
+	height: 100%;
+	font-family: 'Open Sans', "Helvetica Neue", "HelveticaNeue", Arial, sans-serif;
+	font-size: 16px;
+	color: #0b0c0e;
+	font-weight: lighter;
+}
+
+p {
+	font-size: 25px;
+}
+
+h2 {
+	font-size: 50px;
 }
 
 img.fit {
 	width: 100%;
 }
 
+/*----------Header----------*/
+header {
+	position: fixed;
+	top: 0;
+	display: block;
+	width: 720px;
+	height: 100px;
+	z-index: 100;
+
+	background: white;
+	border-bottom: 1px solid #C7C7CC;
+}
+
+header:before, header:after {
+	display: table;
+	content: "";
+}
+
+header div {
+	display: inline-block;
+	line-height: 90px;
+	vertical-align: middle;
+	float: left;
+	height: 100%;
+}
+
+header a {
+	color: white;
+	font-family: oswald, "Helvetica Neue", "HelveticaNeue", Arial, sans-serif;
+	font-size: 20px;
+	text-transform: uppercase;
+	/*padding: 10px 15px 10px;*/
+
+	-webkit-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	-ms-transition: all .3s linear;
+	-kthtml-transition: all .3s linear;
+	transition: all .3s linear;
+}
+
+.edit-button,
+.add-button {
+	width: 90px;
+	text-align: center;
+}
+
+.edit-button p {
+	cursor: pointer;
+	font-size: 40px;
+	font-weight: normal;
+	color: #0079FF;
+	line-height: 100px;
+}
+
+.add-button img {
+	cursor: pointer;
+	height: inherit;
+}
+
+/*----------Main Content----------*/
 .main-content {
 	display: block;
 	position: relative;
 	width: 100%;
 	min-height: 70.4%;
-	top: 45px;
+
+	margin-top: 100px;
+	margin-bottom: 90px;
 }
 
-.page-title {
-	font-size: 25px;
-	font-weight: bold;
-	margin-top: 10px;
-	line-height: 1;
-
-	display: inline-block;
-	text-align: center;
-	color: black;
-}
-
-.edit-button {
-	font-size: 25px;
-	font-weight: normal;
-	color: #0079FF;
-	margin-top: 10px;
-	line-height: 1;
-	margin-left: 10px;
-}
-
-.myTopBar {
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	z-index: 100;
-
-	width: 100%;
-	height: 45px;
-	background-color: white;
-	outline: #d6d6d5 solid 2px;
-}
-
-.top-buttons {
-	width: 25%;
+.hello-user {
+	width: 540px;
 	height: 100%;
-	vertical-align: middle;
+	margin: 0;
+	position: relative;
+	display: inline-block;
 	float: left;
 }
+	.hello-user p {
+		text-align: center;
+		font-size: 40px;
+		color: black;
+	}
 
-#arrow-button {
-	vertical-align: middle;
-	margin-top: 7px;
-}
-#plus-button {
-	height: inherit;
-}
-#delete-button {
-	padding: 30px 16px;
-	margin-top: 7px;
-}
-
-.myFooter {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-
-	z-index: 100;
-
-	width: 100%;
-	height: 50px;
+.panel {
+	width: 90%;
+	height: 200px;
+	position: relative;
 	background: white;
+	overflow: hidden;
+	border-bottom: 1px solid #C7C7CC;
+	padding: 0px 5%;
 }
-.gpa {
-	width: 50%;
-	color: #0079FF;	
-	text-align: center;
-	font-size: 35px;
+	.panel div {
+		float: right;
+	}
+	.panel h2 {
+	}
+	.panel .lhs {
+		display: none;
+		width: 15%;
+		text-align: center;
+	}
+	.panel .mid {
+		width: 85%;
+	}
+	.panel .rhs{
+		display: block;
+		width: 15%;
+		text-align: center;
+	}
+
+#arrow-button,
+#delete-button {
+	width: 70%;
+	padding: 62px 0px;
+	margin-top: 7px;
 }
 
 .myRow {
@@ -118,41 +174,54 @@ img.fit {
 
 /*-------SEMESTER VIEW-------*/
 #semester-view { 
-	margin-bottom: 97.5px; /*APPLY ONLY AFTER 6 SEMESTERS ADDED*/
-	min-height: 88%;
+	/*margin-bottom: 97.5px; APPLY ONLY AFTER 6 SEMESTERS ADDED*/
+	margin-bottom: 50px;
+	min-height: 93%;
 	background-color: #ebebeb;
 }
 
-.semester {
-	display: table;
-	width: 100%;
-	height: 90px;
-	background-color: white;
-	color: black;
-	outline: #d6d6d5 solid 1px;
-}
 
-.semester h2 {
-}
-
-.semester .lhs {
-	display: none;
-	width: 15%;
-}
-.semester .mid {
-	width: 85%;
-}
-.semester .rhs{
+/*-------OVERLAY-------*/
+#add-semester-overlay {
 	display: block;
-	width: 15%;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 200;
+	display: none;
+	background-color: white;
 }
-.semester > div { float: right; }
 
+#add-semester-overlay:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
 
+/*----------Footer----------*/
+footer {
+	position: fixed;
+	display: block;
+	width: 720px;
+	height: 90px;
+	overflow: hidden;
+	z-index: 100;
+	bottom: 0;
 
+	background: white;
+}
 
-
-
+.gpa {
+	width: 50%;
+	text-align: center;
+}
+	.gpa p {
+		cursor: pointer;
+		font-size: 40px;
+		font-weight: normal;
+		color: #0079FF;
+		line-height: 100px;
+	}
 
 
 

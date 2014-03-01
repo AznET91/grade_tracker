@@ -5,23 +5,23 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=720, user-scalable=yes">
 
     <link rel="icon" type="image/ico" href="http://www.veigastudios.com/favicon.ico"/>
 
-    <title>Bruno Veiga</title>
+    <title>Grade Tracker</title>
+	
+	<link rel="stylesheet" href="css/style.css" />
 
-    <link rel="stylesheet" href="css/normalize.css" />
+	
   
-    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="lib/jquery.js"></script>
+    <script src="lib/handlebars.js"></script>
+    <script src="lib/iscroll.js"></script>
+    <script src="js/storage/memory-store.js"></script>
 
-    <link rel="stylesheet" href="css/adaptive.css" />
-
-    <link rel="stylesheet" href="css/style.css" />
-  
-    <script src="js/jquery.js"></script>
-
-    <script src="js/script.js"></script>
+    <script src="js/HomeView.js"></script>
+    <script src="js/main.js"></script>
 	
 	<!-- Get Page title -->
 	<script type="text/javascript">
@@ -46,69 +46,105 @@
 			$('.main-content').appendChild(newSemester);
 		}
 	</script>
-</head>
-<body>
-<div id="semester-view">
-	<div class="myTopBar">
-		<div class="top-buttons">
-			<a href="#" onclick="enableEditing()">
-				<p class="edit-button">Edit</p>
-			</a>
-			<!-- <img class="edit-button" src="img/edit-button.png"> -->
-		</div>
-		<div class="top-buttons" style="text-align: center; width: 50%;">
-			<p class="page-title" style="text-align: center;">Hello, Bruno!</p>
-		</div>
-		<div class="top-buttons">
-			<img id="plus-button" style="float: right;" src="img/plus-button.png">
-		</div>		
-	</div>
-	<div class="main-content">
-		<div id="sem_1" class="semester">
+	<script id="home-tpl" type="text/x-handlebars-template">
+		<header>
+			<div class='edit-button'>
+				<p>Edit</p>
+			</div>
+			<div class='hello-user'>
+				<p style='text-align: center;'>Hello, User!</p>
+			</div>
+			<div class='add-button'>
+				<img id='plus-button' style='float: right; height: 100%;' src='img/plus-icon.png' />
+			</div>		
+		</header>
+		<div class='main-content'></div>
+		<footer>
+			<div class='gpa'>
+				<p>3.47</p>
+			</div>
+		</footer>
+	</script>
+	<script id="semester-tpl" type="text/x-handlebars-template">
+		<div id="pan" class="panel">
 			<div class="rhs">
-				<img id="arrow-button" src="img/arrow-button.png">
+				<img id="arrow-button" src="img/arrow-icon.png" />
 			</div>
 			<div class="mid">
-				<h2> SEMESTER 1 </h2>
-				<p> the start of failin </p>
+				<h2> SEMESTER </h2>
+				<p> description </p>
 			</div>
 			<div class="lhs">
-				<img id="delete-button" src="img/delete-button.png">
+				<a href="#">
+					<img id="delete-button" src="img/delete-icon.png" />
+				</a>
 			</div>
 		</div>
-		<div id="sem_2" class="semester">
-			<img />
-			<div class = "rhs">
-				<img id="arrow-button" src="img/arrow-button.png">
-			</div>
-			<div class = "mid">
-				<h2> SEMESTER 2 </h2>
-				<p> stop trying </p>
-			</div>
-			<div class="lhs">
-				<img id="delete-button" src="img/delete-button.png">
-			</div>
-		</div>
-		<div id="sem_3" class="semester">
-			<div class = "rhs">
-				<img id="arrow-button" src="img/arrow-button.png">
-			</div>
-			<div class = "mid">
-				<h2> SEMESTER 3 </h2>
-				<p> you're screwed now.. </p>
-			</div>
-			<div class="lhs">
-				<img id="delete-button" src="img/delete-button.png">
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="myFooter">
-	<div class="gpa">
-		<p>0.01</p>
-	</div>
-</div>
-
+	</script>
+</head>
+<body id="semester-view">
 </body>
+<!-- <header>
+	<div class="edit-button">
+		<p>Edit</p>
+	</div>
+	<div class="hello-user">
+		<p style="text-align: center;">Hello, User!</p>
+	</div>
+	<div class="add-button">
+		<img id="plus-button" style="float: right; height: 100%;" src="img/plus-icon.png">
+	</div>		
+</header>
+<div class="main-content">
+	<div id="sem_1" class="panel">
+		<div class="rhs">
+			<img id="arrow-button" src="img/arrow-icon.png">
+		</div>
+		<div class="mid">
+			<h2> SEMESTER 1 </h2>
+			<p> description 1 </p>
+		</div>
+		<div class="lhs">
+			<a href="#" onclick="deleteSem('sem_1')">
+				<img id="delete-button" src="img/delete-icon.png">
+			</a>
+		</div>
+	</div>
+	<div id="sem_2" class="panel">
+		<div class = "rhs">
+			<img id="arrow-button" src="img/arrow-icon.png">
+		</div>
+		<div class = "mid">
+			<h2> SEMESTER 2 </h2>
+			<p> description 2 </p>
+		</div>
+		<div class="lhs">
+			<a href="#" onclick="deleteSem('sem_2')">
+				<img id="delete-button" src="img/delete-icon.png">
+			</a>
+		</div>
+	</div>
+	<div id="sem_3" class="panel">
+		<div class = "rhs">
+			<img id="arrow-button" src="img/arrow-icon.png">
+		</div>
+		<div class = "mid">
+			<h2> SEMESTER 3 </h2>
+			<p> description 3 </p>
+		</div>
+		<div class="lhs">
+			<a href="#" onclick="deleteSem('sem_3')">
+				<img id="delete-button" src="img/delete-icon.png">
+			</a>
+		</div>
+	</div>
+</div>
+<div id="add-semester-overlay">
+</div>
+
+<footer>
+	<div class="gpa">
+		<p>3.47</p>
+	</div>
+</footer> -->
 </html>
